@@ -7,7 +7,7 @@ const Button = styled.button`
   color: black;
   text-decoration: none;
   padding: 0;
-  background-color: ${({ activecolor, theme }) => theme[activecolor]};
+  background-color: hsl(196, 83%, 75%);
   width: 220px;
   height: 47px;
   border: none;

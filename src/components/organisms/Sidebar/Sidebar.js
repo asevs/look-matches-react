@@ -48,7 +48,7 @@ const Sidebar = () => (
   <StyledWrapper>
     <StyledLogoIcon as={NavLink} to={routes.home} icon={logoIcon} />
     <StyledLinksList>
-      <ButtonIcon as={NavLink} to={routes.matches} icon={matchIcon} activeclass="active" />
+      <ButtonIcon as={NavLink} to={routes.rooms} icon={matchIcon} activeclass="active" />
       <ButtonIcon as={NavLink} to={routes.players} icon={playerIcon} activeclass="active" />
       <ButtonIcon as={NavLink} to={routes.home} icon={footballStadiumIcon} activeclass="active" />
     </StyledLinksList>
