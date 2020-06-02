@@ -14,11 +14,20 @@ const GoogleMaps = ({ rooms }) => {
           onClick={() => {
             setSelectedRoom(room);
           }}
+          icon={{
+            url: 'http://localhost:3000/static/media/football.b4bcb3ae.svg',
+            scaledSize: { width: 32, height: 32 },
+          }}
         />
       ))}
       {selectedRoom && (
-        <InfoWindow position={{ lat: selectedRoom.place.lat, lng: selectedRoom.place.lng }}>
-          info o meczu
+        <InfoWindow
+          position={{ lat: selectedRoom.place.lat, lng: selectedRoom.place.lng }}
+          onCloseClick={() => {
+            setSelectedRoom(null);
+          }}
+        >
+          <> info o meczu </>
         </InfoWindow>
       )}
     </GoogleMap>

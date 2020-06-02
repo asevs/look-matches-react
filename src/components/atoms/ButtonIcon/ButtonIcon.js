@@ -14,6 +14,9 @@ const ButtonIcon = styled.button`
   &.active {
     background-color: white;
   }
+  &.activeSearchBar {
+    background-color: ${({ theme }) => theme.blue};
+  }
 `;
 
 export default ButtonIcon;

@@ -9,8 +9,8 @@ import locationpin from 'assets/icons/locationpin.svg';
 import usericon from 'assets/icons/user.svg';
 import levelskillicon from 'assets/icons/levelskill.svg';
 import personvsicon from 'assets/icons/personvs.svg';
-// import basketball from 'assets/icons/basketball.svg';
-// import voleyball from 'assets/icons/voleyball.svg';
+import basketball from 'assets/icons/basketball.svg';
+import voleyball from 'assets/icons/voleyball.svg';
 
 const StyledWrapper = styled.div`
   padding: 0.8rem;
@@ -37,9 +37,11 @@ const StyledParagraph = styled(Paragraph)`
 const TeamsWrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSize.xxs};
   grid-column: 2;
-  margin: 0;
+  margin-top: -2rem;
 `;
-
+const DateWrapper = styled(Paragraph)`
+  margin-bottom: -1.2rem;
+`;
 const StyledHeading = styled(Heading)`
   margin-top: 2rem;
   font-size: ${({ theme }) => theme.fontSize.m};
@@ -63,11 +65,6 @@ const StyledButton = styled(Button)`
   width: 150px;
 `;
 
-const DateWrapper = styled(Paragraph)`
-  position: absolute;
-  margin: 0;
-`;
-
 const StyledInfoIcon = styled.img`
   width: 20px;
   height: 20px;
@@ -78,7 +75,9 @@ const StyledInfoIcon = styled.img`
 class MatchCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      disciplineTypes: { football, basketball, voleyball },
+    };
   }
 
   render() {
@@ -91,12 +90,16 @@ class MatchCard extends Component {
       teamSecond,
       teamFirst,
       ownerUser,
+      roomStatus,
+      disciplineType,
     } = this.props;
+
+    const { disciplineTypes } = this.state;
 
     return (
       <StyledWrapper>
         <AvatarWrapper>
-          <StyledDisciplineAvatar src={football} />
+          <StyledDisciplineAvatar src={disciplineTypes[disciplineType]} />
         </AvatarWrapper>
 
         <TeamsWrapper>
@@ -124,7 +127,7 @@ class MatchCard extends Component {
           {users}/{slots}
         </SlotsWrapper>
         <ButtonWrapper>
-          <StyledButton>Dołącz</StyledButton>
+          {roomStatus === 'OPEN' && <StyledButton>Dołącz</StyledButton>}
         </ButtonWrapper>
       </StyledWrapper>
     );
@@ -140,6 +143,8 @@ MatchCard.propTypes = {
   teamSecond: PropTypes.string.isRequired,
   teamFirst: PropTypes.string.isRequired,
   ownerUser: PropTypes.string.isRequired,
+  roomStatus: PropTypes.string.isRequired,
+  disciplineType: PropTypes.string.isRequired,
 };
 
 export default MatchCard;
