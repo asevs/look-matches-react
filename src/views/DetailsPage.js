@@ -21,9 +21,9 @@ class DetailsPage extends Component {
         levelSkill: '',
         eventDate: '',
         users: null,
-        teamSecond: null,
-        teamFirst: null,
-        ownerUser: null,
+        teamSecond: {},
+        teamFirst: {},
+        ownerUser: {},
         disciplineType: '',
         roomStatus: '',
       },
@@ -37,6 +37,7 @@ class DetailsPage extends Component {
       .then(({ data }) => {
         this.setState({ activeRoom: data });
       })
+      // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
   }
 
