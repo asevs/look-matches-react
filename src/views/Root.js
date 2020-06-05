@@ -20,9 +20,9 @@ const Root = () => (
           <Route exact path={routes.login} component={LoginPage} />
           <Route exact path={routes.register} component={RegisterPage} />
           <Route exact path={routes.rooms} component={Rooms} />
-          <Route exact path={routes.room} component={DetailsPage} />
+          <Route path={routes.room} component={DetailsPage} />
           <Route exact path={routes.players} component={Players} />
-          <Route exact path={routes.player} component={DetailsPage} />
+          <Route path={routes.player} component={DetailsPage} />
 
           <Route />
         </Switch>

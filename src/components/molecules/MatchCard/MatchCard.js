@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import football from 'assets/icons/football.svg';
@@ -77,11 +78,15 @@ class MatchCard extends Component {
     super(props);
     this.state = {
       disciplineTypes: { football, basketball, voleyball },
+      redirect: false,
     };
   }
 
+  handleCardClick = () => this.setState({ redirect: true });
+
   render() {
     const {
+      id,
       place,
       slots,
       levelSkill,
@@ -94,10 +99,14 @@ class MatchCard extends Component {
       disciplineType,
     } = this.props;
 
-    const { disciplineTypes } = this.state;
+    const { disciplineTypes, redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to={`room/details/${id}`} />;
+    }
 
     return (
-      <StyledWrapper>
+      <StyledWrapper onClick={this.handleCardClick}>
         <AvatarWrapper>
           <StyledDisciplineAvatar src={disciplineTypes[disciplineType]} />
         </AvatarWrapper>
@@ -135,6 +144,7 @@ class MatchCard extends Component {
 }
 
 MatchCard.propTypes = {
+  id: PropTypes.number.isRequired,
   place: PropTypes.string.isRequired,
   slots: PropTypes.number.isRequired,
   levelSkill: PropTypes.string.isRequired,

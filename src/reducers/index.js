@@ -21,7 +21,7 @@ const initialState = {
       roomStatus: 'OPEN',
     },
     {
-      id: 1,
+      id: 2,
       place: {
         id: 1,
         city: 'Żywiec',
@@ -41,7 +41,7 @@ const initialState = {
       roomStatus: 'OPEN',
     },
     {
-      id: 1,
+      id: 3,
       place: {
         id: 1,
         city: 'Żywiec',
@@ -61,7 +61,7 @@ const initialState = {
       roomStatus: 'OPEN',
     },
     {
-      id: 1,
+      id: 4,
       place: {
         id: 1,
         city: 'Żywiec',
@@ -81,7 +81,7 @@ const initialState = {
       roomStatus: 'OPEN',
     },
     {
-      id: 1,
+      id: 5,
       place: {
         id: 1,
         city: 'Żywiec',
@@ -101,7 +101,7 @@ const initialState = {
       roomStatus: 'OPEN',
     },
     {
-      id: 1,
+      id: 6,
       place: {
         id: 1,
         city: 'Żywiec',
