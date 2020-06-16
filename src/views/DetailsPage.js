@@ -20,7 +20,7 @@ class DetailsPage extends Component {
         slots: null,
         levelSkill: '',
         eventDate: '',
-        users: null,
+        users: [],
         teamSecond: {},
         teamFirst: {},
         ownerUser: {},
